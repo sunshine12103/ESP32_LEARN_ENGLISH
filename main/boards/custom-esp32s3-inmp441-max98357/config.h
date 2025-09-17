@@ -46,7 +46,7 @@
 #define DISPLAY_RGB_ORDER LCD_RGB_ELEMENT_ORDER_BGR
 #define DISPLAY_OFFSET_X  20     // Dịch nhiều hơn để căn giữa
 #define DISPLAY_OFFSET_Y  0     // Dịch nhiều hơn để căn giữa
-#define DISPLAY_BACKLIGHT_OUTPUT_INVERT false
+#define DISPLAY_BACKLIGHT_OUTPUT_INVERT true   // Thử true để tăng độ sáng
 #define DISPLAY_SPI_MODE 0
 
 // SPI configuration - thêm các định nghĩa này

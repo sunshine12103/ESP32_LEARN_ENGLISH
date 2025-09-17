@@ -203,8 +203,11 @@ public:
     virtual Backlight* GetBacklight() override {
         if (DISPLAY_BACKLIGHT_PIN != GPIO_NUM_NC) {
             static PwmBacklight backlight(DISPLAY_BACKLIGHT_PIN, DISPLAY_BACKLIGHT_OUTPUT_INVERT);
-            // Đảm bảo backlight luôn sáng tối đa
+            // Force max brightness multiple times để đảm bảo
             backlight.SetBrightness(1.0f, false);
+            vTaskDelay(pdMS_TO_TICKS(10));
+            backlight.SetBrightness(1.0f, true);  // Force update
+            ESP_LOGI("BACKLIGHT", "Forced max brightness 100%%");
             return &backlight;
         }
         return nullptr;
