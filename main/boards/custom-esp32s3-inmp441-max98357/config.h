@@ -35,17 +35,17 @@
 #define DISPLAY_CLK_PIN         GPIO_NUM_12  // SCLK
 #define DISPLAY_BACKLIGHT_PIN   GPIO_NUM_48  // Giữ nguyên GPIO 48
 
-// Display configuration for ST7789 240x280
+// Display configuration for ST7789 280x240 - Landscape với SWAP_XY = true
 #define LCD_TYPE_ST7789_SERIAL
-#define DISPLAY_WIDTH   240
-#define DISPLAY_HEIGHT  280
+#define DISPLAY_WIDTH   280      // Landscape width với SWAP_XY
+#define DISPLAY_HEIGHT  240      // Landscape height với SWAP_XY
 #define DISPLAY_MIRROR_X false
-#define DISPLAY_MIRROR_Y false
-#define DISPLAY_SWAP_XY false
-#define DISPLAY_INVERT_COLOR false  // Thử false thay vì true
-#define DISPLAY_RGB_ORDER LCD_RGB_ELEMENT_ORDER_RGB
-#define DISPLAY_OFFSET_X  0
-#define DISPLAY_OFFSET_Y  20
+#define DISPLAY_MIRROR_Y true    // Quay lại true như Korvo2-V3
+#define DISPLAY_SWAP_XY true     // BẮT BUỘC true để có chế độ ngang
+#define DISPLAY_INVERT_COLOR true   
+#define DISPLAY_RGB_ORDER LCD_RGB_ELEMENT_ORDER_BGR
+#define DISPLAY_OFFSET_X  20     // Dịch nhiều hơn để căn giữa
+#define DISPLAY_OFFSET_Y  0     // Dịch nhiều hơn để căn giữa
 #define DISPLAY_BACKLIGHT_OUTPUT_INVERT false
 #define DISPLAY_SPI_MODE 0
 

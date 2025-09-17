@@ -1,6 +1,7 @@
 #include "wifi_board.h"
 #include "codecs/no_audio_codec.h"
 #include "display/lcd_display.h"
+#include "display/lvgl_display/lvgl_theme.h"
 #include "../common/backlight.h"
 #include "system_reset.h"
 #include "application.h"
@@ -84,7 +85,7 @@ private:
         io_config.cs_gpio_num = DISPLAY_CS_PIN;
         io_config.dc_gpio_num = DISPLAY_DC_PIN;
         io_config.spi_mode = DISPLAY_SPI_MODE;
-        io_config.pclk_hz = 40 * 1000 * 1000;  // Giảm xuống 40MHz để ổn định hơn
+        io_config.pclk_hz = 60 * 1000 * 1000;  // Tăng lên 60MHz như Korvo2-V3 
         io_config.trans_queue_depth = 10;
         io_config.lcd_cmd_bits = 8;
         io_config.lcd_param_bits = 8;
@@ -124,6 +125,26 @@ private:
                                     DISPLAY_OFFSET_X, DISPLAY_OFFSET_Y, 
                                     DISPLAY_MIRROR_X, DISPLAY_MIRROR_Y, 
                                     DISPLAY_SWAP_XY);
+        
+        // Force sử dụng light theme để có màu sắc
+        ESP_LOGI(TAG, "Setting light theme for colorful display");
+        auto& theme_manager = LvglThemeManager::GetInstance();
+        auto light_theme = theme_manager.GetTheme("light");
+        if (light_theme) {
+            display_->SetTheme(light_theme);
+            ESP_LOGI(TAG, "Light theme applied successfully");
+            
+            // Test màu sắc của light theme
+            ESP_LOGI(TAG, "Light theme colors:");
+            ESP_LOGI(TAG, "  Background: white");
+            ESP_LOGI(TAG, "  Text: black");
+            ESP_LOGI(TAG, "  User bubble: #95EC69 (green)");
+            ESP_LOGI(TAG, "  Assistant bubble: white");
+            ESP_LOGI(TAG, "  System bubble: #E0E0E0 (light gray)");
+        } else {
+            ESP_LOGW(TAG, "Light theme not found, using default");
+        }
+        
         ESP_LOGI(TAG, "Display initialization completed successfully");
     }
 
