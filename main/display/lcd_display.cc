@@ -2,6 +2,7 @@
 #include "gif/lvgl_gif.h"
 #include "settings.h"
 #include "lvgl_theme.h"
+#include "emoji_collection.h"
 #include "assets/lang_config.h"
 
 #include <vector>
@@ -26,6 +27,10 @@ void LcdDisplay::InitializeLcdThemes() {
     auto icon_font = std::make_shared<LvglBuiltInFont>(&LVGL_ICON_FONT);
     auto large_icon_font = std::make_shared<LvglBuiltInFont>(&font_awesome_30_4);
 
+    // Create emoji collections for colorful emotions  
+    auto emoji_collection_32 = std::make_shared<Twemoji32>();
+    auto emoji_collection_64 = std::make_shared<Twemoji64>();
+
     // light theme
     auto light_theme = new LvglTheme("light");
     light_theme->set_background_color(lv_color_white());
@@ -40,6 +45,7 @@ void LcdDisplay::InitializeLcdThemes() {
     light_theme->set_text_font(text_font);
     light_theme->set_icon_font(icon_font);
     light_theme->set_large_icon_font(large_icon_font);
+    light_theme->set_emoji_collection(emoji_collection_64);  // Add colorful emojis!
 
     // dark theme
     auto dark_theme = new LvglTheme("dark");
@@ -55,6 +61,7 @@ void LcdDisplay::InitializeLcdThemes() {
     dark_theme->set_text_font(text_font);
     dark_theme->set_icon_font(icon_font);
     dark_theme->set_large_icon_font(large_icon_font);
+    dark_theme->set_emoji_collection(emoji_collection_64);  // Add colorful emojis!
 
     auto& theme_manager = LvglThemeManager::GetInstance();
     theme_manager.RegisterTheme("light", light_theme);
