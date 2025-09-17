@@ -71,7 +71,7 @@ void CustomEmojiDisplay::SetupGifContainer() {
 
     // Create GIF emotion container
     emotion_gif_ = lv_gif_create(content_);
-    int gif_size = LV_HOR_RES / 3; // Make it smaller for landscape mode
+    int gif_size = LV_HOR_RES / 2; // Làm to hơn: chia 2 thay vì chia 3
     lv_obj_set_size(emotion_gif_, gif_size, gif_size);
     lv_obj_set_style_border_width(emotion_gif_, 0, 0);
     lv_obj_set_style_bg_opa(emotion_gif_, LV_OPA_TRANSP, 0);

@@ -2,7 +2,6 @@
 #include "codecs/no_audio_codec.h"
 #include "display/lcd_display.h"
 #include "display/lvgl_display/lvgl_theme.h"
-#include "custom_emoji_display.h"
 #include "../common/backlight.h"
 #include "system_reset.h"
 #include "application.h"
@@ -122,10 +121,10 @@ private:
 
         ESP_LOGI(TAG, "Creating SpiLcdDisplay with size %dx%d", DISPLAY_WIDTH, DISPLAY_HEIGHT);
         display_ = new SpiLcdDisplay(panel_io, panel,
-                                    DISPLAY_WIDTH, DISPLAY_HEIGHT, 
-                                    DISPLAY_OFFSET_X, DISPLAY_OFFSET_Y, 
-                                    DISPLAY_MIRROR_X, DISPLAY_MIRROR_Y, 
-                                    DISPLAY_SWAP_XY);
+                                   DISPLAY_WIDTH, DISPLAY_HEIGHT, 
+                                   DISPLAY_OFFSET_X, DISPLAY_OFFSET_Y, 
+                                   DISPLAY_MIRROR_X, DISPLAY_MIRROR_Y, 
+                                   DISPLAY_SWAP_XY);
         
         // Force sử dụng light theme để có màu sắc
         ESP_LOGI(TAG, "Setting light theme for colorful display");
