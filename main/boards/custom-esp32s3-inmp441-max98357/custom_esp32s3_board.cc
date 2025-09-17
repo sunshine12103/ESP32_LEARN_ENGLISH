@@ -2,6 +2,7 @@
 #include "codecs/no_audio_codec.h"
 #include "display/lcd_display.h"
 #include "display/lvgl_display/lvgl_theme.h"
+#include "custom_emoji_display.h"
 #include "../common/backlight.h"
 #include "system_reset.h"
 #include "application.h"

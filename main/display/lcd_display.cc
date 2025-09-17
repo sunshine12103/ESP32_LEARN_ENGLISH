@@ -45,7 +45,7 @@ void LcdDisplay::InitializeLcdThemes() {
     light_theme->set_text_font(text_font);
     light_theme->set_icon_font(icon_font);
     light_theme->set_large_icon_font(large_icon_font);
-    light_theme->set_emoji_collection(emoji_collection_64);  // Add colorful emojis!
+    light_theme->set_emoji_collection(emoji_collection_32);  // Thử 32px emojis
 
     // dark theme
     auto dark_theme = new LvglTheme("dark");
@@ -61,7 +61,7 @@ void LcdDisplay::InitializeLcdThemes() {
     dark_theme->set_text_font(text_font);
     dark_theme->set_icon_font(icon_font);
     dark_theme->set_large_icon_font(large_icon_font);
-    dark_theme->set_emoji_collection(emoji_collection_64);  // Add colorful emojis!
+    dark_theme->set_emoji_collection(emoji_collection_32);  // Thử 32px emojis
 
     auto& theme_manager = LvglThemeManager::GetInstance();
     theme_manager.RegisterTheme("light", light_theme);

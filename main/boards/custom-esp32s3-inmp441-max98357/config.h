@@ -43,7 +43,7 @@
 #define DISPLAY_MIRROR_Y true    // Quay lại true như Korvo2-V3
 #define DISPLAY_SWAP_XY true     // BẮT BUỘC true để có chế độ ngang
 #define DISPLAY_INVERT_COLOR true   
-#define DISPLAY_RGB_ORDER LCD_RGB_ELEMENT_ORDER_BGR
+#define DISPLAY_RGB_ORDER LCD_RGB_ELEMENT_ORDER_RGB  // Thử RGB để emoji có màu đúng
 #define DISPLAY_OFFSET_X  20     // Dịch nhiều hơn để căn giữa
 #define DISPLAY_OFFSET_Y  0     // Dịch nhiều hơn để căn giữa
 #define DISPLAY_BACKLIGHT_OUTPUT_INVERT true   // Thử true để tăng độ sáng
